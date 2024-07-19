@@ -14,3 +14,8 @@ services:
     image: mongo:4.0-xenial
     ports:
       - 27017:27017
+    volumes:
+      - vidly:/data/db
+
+volumes:
+  vidly:
