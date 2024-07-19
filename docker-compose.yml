@@ -1,16 +1,20 @@
 version: "3.8"
+
 services:
-  frontend:
+  web:
     build: ./frontend
     ports:
       - 3000:3000
-  backend:
+
+  api:
     build: ./backend
     ports:
       - 3001:3001
     environment:
       DB_URL: mongodb://db/vidly
-  database:
+    command: ./docker-entrypoint.sh
+  
+  db:
     image: mongo:4.0-xenial
     ports:
       - 27017:27017
